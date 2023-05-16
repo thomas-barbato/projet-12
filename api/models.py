@@ -43,13 +43,14 @@ class MyUserManager(BaseUserManager):
 # https://thinkster.io/tutorials/django-json-api/authentication
 class User(AbstractBaseUser):
 
-    ROLE = [('SALES', 'sales'),
-            ('SUPPORT', 'support'),
-            ('MANAGEMENT', 'management')
+    ROLE = [('SALES', 'SALES'),
+            ('SUPPORT', 'SUPPORT'),
+            ('MANAGEMENT', 'MANAGEMENT')
             ]
 
     email = models.EmailField(blank=False, unique=True)
-    is_admin = models.BooleanField(default=False)
+    first_name = models.CharField(max_length=50, blank=True)
+    last_name = models.CharField(max_length=50, blank=True)
     role = models.CharField(max_length=10, choices=ROLE, default=ROLE[2])
     tel = models.CharField(max_length=20)
 
