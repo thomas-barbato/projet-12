@@ -7,12 +7,6 @@ from django.db import models
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.settings")
 
-
-class Role(models.Model):
-    role_id = models.AutoField(primary_key=True, editable=False)
-    name = models.CharField(max_length=30)
-
-
 class MyUserManager(BaseUserManager):
     def create_user(self, email, password, first_name=None, last_name=None):
         if not email:
