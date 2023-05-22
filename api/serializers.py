@@ -92,3 +92,11 @@ class MyTokenObtainPairSerializer(MyTokenObtainSerializer):
         data["access"] = str(refresh.access_token)
 
         return data
+
+
+class LoginUserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(style={"input_type": "password"}, write_only=True)
+
+    class Meta:
+        model = User
+        fields = ["email", "password"]

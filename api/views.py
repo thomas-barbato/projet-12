@@ -2,11 +2,11 @@ from rest_framework import viewsets
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView
+from django.contrib import admin
 
 from api.models import User, Client, Event, Contract
 
 from .serializers import (UserSerializer, MyTokenObtainPairSerializer)
-
 
 class UserViewset(ModelViewSet):
     permission_classes = (AllowAny,)
