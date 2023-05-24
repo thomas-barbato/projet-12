@@ -3,9 +3,13 @@ from django.contrib import admin
 from rest_framework_nested import routers
 from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 
-from api.views import (MyTokenObtainPairView, UserViewset)
+from api.views import (MyTokenObtainPairView, UserViewset, ContractViewset)
 
 base_router = routers.DefaultRouter()
+# /contract/
+# /contract/{pk}/
+base_router.register(r"contracts", ContractViewset, basename="contract")
+
 
 urlpatterns = [
     path("", include(base_router.urls)),

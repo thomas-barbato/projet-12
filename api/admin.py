@@ -18,8 +18,8 @@ class UserAdmin(ModelAdmin):
     )
 
 
-@admin.register(Event)
-class EventtAdmin(ModelAdmin):
+@admin.register(Client)
+class ClientAdmin(ModelAdmin):
     fields = (
         "first_name",
         "last_name",
@@ -29,11 +29,12 @@ class EventtAdmin(ModelAdmin):
         "facebook",
         "twitter",
         "linkedin",
-        "company",
+        "company_name",
         "is_prospect",
         "date_created",
         "date_updated",
     )
+    readonly_fields = ('date_created', 'date_updated')
 
 
 @admin.register(Contract)
@@ -41,16 +42,16 @@ class ContractAdmin(ModelAdmin):
     fields = (
         "client",
         "sales_contact",
-        "status",
         "amount",
+        "status",
         "payement_due",
         "date_created",
         "date_updated",
     )
+    readonly_fields = ('date_created',)
 
-
-@admin.register(Client)
-class ClientAdmin(ModelAdmin):
+@admin.register(Event)
+class EventAdmin(ModelAdmin):
     fields = (
         "client",
         "support_contact",
@@ -60,3 +61,4 @@ class ClientAdmin(ModelAdmin):
         "date_created",
         "date_updated",
     )
+    readonly_fields = ('date_created', 'date_updated')

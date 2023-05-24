@@ -18,7 +18,7 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ("email", "password", "password2", "first_name", "last_name", "tel", "role")
+        fields = ("id","email", "password", "password2", "first_name", "last_name", "tel", "role")
         read_only_fields = ("id",)
 
     def validate(self, attrs):
@@ -100,3 +100,19 @@ class LoginUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ["email", "password"]
+
+
+class ContractSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Contract
+        fields = ["id",
+                  "sales_contact_id",
+                  "client_id",
+                  "date_created",
+                  "date_updated",
+                  "status",
+                  "amount",
+                  "payement_due",
+                  ]
+        read_only_fields = ("id",)
