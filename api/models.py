@@ -4,6 +4,7 @@ from django.contrib.auth.base_user import AbstractBaseUser
 from django.contrib.auth.models import (AbstractUser, BaseUserManager,
                                         UserManager)
 from django.db import models
+from phonenumber_field.modelfields import PhoneNumberField
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.settings")
 
@@ -74,12 +75,12 @@ class Client(models.Model):
     tel = models.CharField(max_length=20)
     mobile = models.CharField(max_length=20)
     email = models.CharField(max_length=100)
-    company_name = models.CharField(max_length=250)
-    facebook = models.CharField(max_length=100)
-    twitter = models.CharField(max_length=100)
-    linkedin = models.CharField(max_length=100)
+    company_name = models.CharField(max_length=250, blank=True, default='')
+    facebook = models.CharField(max_length=100, blank=True, default='')
+    twitter = models.CharField(max_length=100, blank=True, default='')
+    linkedin = models.CharField(max_length=100, blank=True, default='')
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
-    date_updated = models.DateTimeField("Updated_Date", auto_now_add=True)
+    date_updated = models.DateTimeField("Updated_Date", auto_now=True)
 
     def __str__(self):
         return f'{self.pk}: { self.first_name } { self.last_name } - is_prospect : {self.is_prospect}'
@@ -88,7 +89,7 @@ class Client(models.Model):
 class Event(models.Model):
     client = models.ForeignKey(Client, on_delete=models.RESTRICT, null=True, blank=True)
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
-    date_updated = models.DateTimeField("Updated_Date", auto_now_add=True)
+    date_updated = models.DateTimeField("Updated_Date", auto_now=True)
     support_contact = models.ForeignKey(User, on_delete=models.RESTRICT, null=True, blank=True)
     attendees = models.PositiveIntegerField()
     event_date = models.DateTimeField("event_date", auto_now_add=False)
@@ -102,10 +103,10 @@ class Contract(models.Model):
     sales_contact = models.ForeignKey(User, on_delete=models.RESTRICT)
     client = models.ForeignKey(Client, on_delete=models.RESTRICT, null=True, blank=True)
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
-    date_updated = models.DateTimeField("Updated_Date", auto_now_add=True)
+    date_updated = models.DateTimeField("Updated_Date", auto_now=False)
     status = models.BooleanField(default=True)
     amount = models.FloatField()
-    payement_due = models.DateTimeField("Payement_Date", auto_now_add=False)
+    payement_due = models.DateTimeField("Payement_Date", auto_now=False)
 
     def __str__(self):
         return f'{ self.client }'
