@@ -7,7 +7,7 @@ from django.contrib import admin
 from api.models import User, Client, Event, Contract
 from .permissions import IsSalesmanContract
 
-from .serializers import (UserSerializer, MyTokenObtainPairSerializer, ContractSerializer)
+from .serializers import (UserSerializer, MyTokenObtainPairSerializer, ContractSerializer, ClientSerializer)
 
 class UserViewset(ModelViewSet):
     permission_classes = (AllowAny,)
@@ -18,6 +18,12 @@ class UserViewset(ModelViewSet):
 class ContractViewset(ModelViewSet):
     permission_classes = (IsAuthenticated,IsSalesmanContract)
     serializer_class = ContractSerializer
+    queryset = Contract.objects.all()
+
+
+class ClientViewset(ModelViewSet):
+    permission_classes = (IsAuthenticated,IsSalesmanContract)
+    serializer_class = ClientSerializer
     queryset = Contract.objects.all()
 
 
