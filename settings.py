@@ -1,9 +1,10 @@
 import os
 from datetime import timedelta
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+print(BASE_DIR)
 SECRET_KEY = '008p$it5*b=-3nv!%lo6@s7^qs)&g!&vbsjwz1m9g_l6hhwdl+'
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "0.0.0.0"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -57,8 +58,7 @@ SIMPLE_JWT = {
     "TOKEN_OBTAIN_SERIALIZER": "api.serializers.EmailPairSerializer",
     "USER_ID_FIELD": "id",
     "USER_ID_CLAIM": "id",
-}
-
+} # faker.DEFAULT_PROVIDERS is loaded (all)
 
 ROOT_URLCONF = 'urls'
 
@@ -118,3 +118,23 @@ USE_TZ = True
 
 STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
+
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR + "/api/logs/debug.log",
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'INFO',
+            'propagate': True,
+        },
+    },
+}
