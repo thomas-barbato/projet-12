@@ -116,3 +116,22 @@ class ContractSerializer(serializers.ModelSerializer):
                   "payement_due",
                   ]
         read_only_fields = ("id",)
+
+
+class ClientSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Contract
+        fields = ["id",
+                  "is_prospect",
+                  "first_name",
+                  "last_name",
+                  "tel",
+                  "mobile",
+                  "email",
+                  "company_name",
+                  "facebook",
+                  "twitter",
+                  "linkedin",
+                  ]
+        read_only_fields = ("id",)
