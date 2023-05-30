@@ -121,7 +121,7 @@ class ContractSerializer(serializers.ModelSerializer):
 class ClientSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = Contract
+        model = Client
         fields = ["id",
                   "is_prospect",
                   "first_name",
