@@ -1,17 +1,20 @@
 from django.urls import include, path
 from django.contrib import admin
-from rest_framework_nested import routers
+from rest_framework.routers import SimpleRouter
 from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 
-from api.views import (MyTokenObtainPairView, UserViewset, ContractViewset, ClientViewset)
+from api.views import (MyTokenObtainPairView, UserViewset, ContractViewset, ClientViewset, EventViewset)
 
-base_router = routers.DefaultRouter()
+base_router = SimpleRouter()
 # /contracts/
 # /contracts/{pk}/
 base_router.register(r"contracts", ContractViewset, basename="contract")
 # /clients/
 # /clients/{pk}/
 base_router.register(r"clients", ClientViewset, basename="client")
+# /events/
+# /events/{pk}/
+base_router.register(r"events", EventViewset, basename="event")
 
 
 urlpatterns = [

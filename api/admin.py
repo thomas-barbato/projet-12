@@ -48,7 +48,7 @@ class ContractAdmin(ModelAdmin):
         "date_created",
         "date_updated",
     )
-    readonly_fields = ('date_created',)
+    readonly_fields = ('date_created', 'date_updated')
 
 @admin.register(Event)
 class EventAdmin(ModelAdmin):
