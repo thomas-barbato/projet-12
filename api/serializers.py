@@ -135,3 +135,20 @@ class ClientSerializer(serializers.ModelSerializer):
                   "linkedin",
                   ]
         read_only_fields = ("id",)
+
+class EventSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Event
+        fields = [
+            "id",
+            "date_created",
+            "date_updated",
+            "attendees",
+            "event_date",
+            "notes",
+            "client",
+            "support_contact",
+            "contract",
+        ]
+        read_only_fields = ("id",)

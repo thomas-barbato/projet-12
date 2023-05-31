@@ -1,12 +1,10 @@
 import os
 
 from django.contrib.auth.base_user import AbstractBaseUser
-from django.contrib.auth.models import (AbstractUser, BaseUserManager,
+from django.contrib.auth.models import (BaseUserManager,
                                         UserManager)
 from django.db import models
-from phonenumber_field.modelfields import PhoneNumberField
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "api.settings")
 
 class MyUserManager(BaseUserManager):
     def create_user(self, email, password, first_name=None, last_name=None):
@@ -86,27 +84,28 @@ class Client(models.Model):
         return f'{self.pk}: { self.first_name } { self.last_name } - is_prospect : {self.is_prospect}'
 
 
-class Event(models.Model):
+class Contract(models.Model):
+    sales_contact = models.ForeignKey(User, on_delete=models.RESTRICT)
     client = models.ForeignKey(Client, on_delete=models.RESTRICT, null=True, blank=True)
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
-    date_updated = models.DateTimeField("Updated_Date", auto_now=True)
-    support_contact = models.ForeignKey(User, on_delete=models.RESTRICT, null=True, blank=True)
-    attendees = models.PositiveIntegerField()
-    event_date = models.DateTimeField("event_date", auto_now_add=False)
-    notes = models.TextField(max_length=500)
+    date_updated = models.DateTimeField("Updated_Date", auto_now_add=True)
+    status = models.BooleanField(default=True)
+    amount = models.FloatField()
+    payement_due = models.DateTimeField("Payement_Date", auto_now=False)
 
     def __str__(self):
         return f'{ self.client }'
 
 
-class Contract(models.Model):
-    sales_contact = models.ForeignKey(User, on_delete=models.RESTRICT)
+class Event(models.Model):
     client = models.ForeignKey(Client, on_delete=models.RESTRICT, null=True, blank=True)
+    contract = models.ForeignKey(Contract, on_delete=models.RESTRICT, null=True, blank=True)
+    support_contact = models.ForeignKey(User, on_delete=models.RESTRICT, null=True, blank=True)
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
-    date_updated = models.DateTimeField("Updated_Date", auto_now=False)
-    status = models.BooleanField(default=True)
-    amount = models.FloatField()
-    payement_due = models.DateTimeField("Payement_Date", auto_now=False)
+    date_updated = models.DateTimeField("Updated_Date", auto_now=True)
+    attendees = models.PositiveIntegerField()
+    event_date = models.DateTimeField("event_date", auto_now_add=False, blank=True)
+    notes = models.TextField(max_length=500)
 
     def __str__(self):
         return f'{ self.client }'
