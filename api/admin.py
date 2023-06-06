@@ -1,21 +1,26 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
+from django.contrib.auth.admin import UserAdmin
 
+from api.forms import CustomUserAdminForm
 from api.models import User, Event, Contract, Client
 
 
-@admin.register(User)
-class UserAdmin(ModelAdmin):
-    fields = (
-        "first_name",
-        "last_name",
-        "email",
-        "tel",
-        "role",
-        "is_active",
-        "is_staff",
-        "is_admin"
+class CustomUserAdmin(ModelAdmin):
+    model = User
+    form = CustomUserAdminForm
+
+    fieldsets = (
+        ('Informations de connexion', {'fields': ('email', 'password')}),
+        ('Informations personnelles', {'fields': ('first_name', 'last_name', 'role', 'tel')}),
+        ('Permissions', {'fields': ('is_admin', 'is_active', 'is_staff')}),
     )
+
+    ordering = ('id',)
+
+    filter_horizontal = ()
+
+admin.site.register(User, CustomUserAdmin)
 
 
 @admin.register(Client)

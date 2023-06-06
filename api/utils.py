@@ -16,10 +16,6 @@ class GenerateFaker:
         self.role = group
 
     def get_group_data(self):
-        if self.role == "MANAGEMENT":
-            is_admin = True
-        else:
-            is_admin = False
         return {
             'email': self.email,
             'password': self.password,
@@ -29,14 +25,10 @@ class GenerateFaker:
             'role': self.role,
             'tel': self.tel,
             'is_active': self.is_active,
-            'is_admin': is_admin,
-        } if self.role in ["MANAGEMENT", "SALES", "SUPPORT"] else {}
+            'is_admin': False,
+        } if self.role in ["SALES", "SUPPORT"] else {}
 
     def get_simplified_group_data(self):
-        if self.role == "MANAGEMENT":
-            is_admin = True
-        else:
-            is_admin = False
         return {
             'id': 1,
             'email': self.email,
@@ -46,8 +38,8 @@ class GenerateFaker:
             'role': self.role,
             'tel': self.tel,
             'is_active': self.is_active,
-            'is_admin': is_admin,
-        } if self.role in ["MANAGEMENT", "SALES", "SUPPORT"] else {}
+            'is_admin': False,
+        } if self.role in ["SALES", "SUPPORT"] else {}
 
     def get_client(self):
         return {
