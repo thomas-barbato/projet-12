@@ -13,7 +13,6 @@ class AuthViewsTests(APITestCase):
     def setUp(self):
         self.support = GenerateFaker("SUPPORT")
         self.sales = GenerateFaker("SALES")
-        self.management = GenerateFaker("MANAGEMENT")
 
     def test_create_support_user(self):
         url = reverse('signup')
