@@ -3,6 +3,7 @@ import re
 
 from django.utils.safestring import mark_safe
 from rest_framework import serializers
+from django.core.exceptions import ValidationError
 
 from api.models import User
 
@@ -41,6 +42,23 @@ class CheckPasswordPolicy:
                 }
             )
 
+    def validate_form(self, password):
+        """
+        Has minimum 8 characters in length
+        At least one uppercase letter. You can remove this condition by removing (?=.*?[A-Z])
+        At least one lowercase letter. You can remove this condition by removing (?=.*?[a-z])
+        At least one digit. You can remove this condition by removing (?=.*?[0-9])
+        At least one special character, You can remove this condition by removing (?=.*?[#?!@$%^&*-])
+        """
+        if re.match(self.password_pattern, password) is None:
+            raise ValidationError(
+                "Votre mot de passe doit contenir à minima "
+                "8 caractères, "
+                "1 majuscule, "
+                "1 minuscule, "
+                "1 symbole, "
+                "1 chiffre "
+            )
 
 class CheckUsernameAlreadyUsed:
     """docstring"""
