@@ -10,11 +10,15 @@ from .validators.check_data import CheckPasswordPolicy
 
 
 class UserSerializer(serializers.ModelSerializer):
+    ROLE = [('SALES', 'SALES'),
+            ('SUPPORT', 'SUPPORT'),
+    ]
     password = serializers.CharField(style={"input_type": "password"}, write_only=True)
     password2 = serializers.CharField(style={"input_type": "password"}, write_only=True)
     email = serializers.EmailField(
         required=True, validators=[UniqueValidator(queryset=User.objects.all())]
     )
+    role = serializers.ChoiceField(ROLE)
 
     class Meta:
         model = User
