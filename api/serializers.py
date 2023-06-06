@@ -35,8 +35,6 @@ class UserSerializer(serializers.ModelSerializer):
             tel=self.validated_data["tel"],
             role=self.validated_data["role"],
         )
-        if user.role == "MANAGEMENT":
-            user.is_staff = True
         password = self.validated_data["password"]
         user.set_password(password)
         user.save()
