@@ -31,12 +31,11 @@ class CustomUserAdminForm(forms.ModelForm):
         )
 
     def save(self, commit=True):
-        # Save the provided password in hashed format
         user = super(CustomUserAdminForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password"])
-        if commit:
-            if user.role == "MANAGEMENT":
-                user.is_admin = True
-                user.is_staff = True
-            user.save()
+        if self.cleaned_data["role"] == "MANAGEMENT":
+            user.is_admin = True
+            user.is_staff = True
+        user.is_active = True
+        user.save()
         return user
