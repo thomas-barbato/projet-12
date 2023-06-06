@@ -13,7 +13,6 @@ class CustomUserAdmin(ModelAdmin):
     fieldsets = (
         ('Informations de connexion', {'fields': ('email', 'password')}),
         ('Informations personnelles', {'fields': ('first_name', 'last_name', 'role', 'tel')}),
-        ('Permissions', {'fields': ('is_admin', 'is_active', 'is_staff')}),
     )
 
     ordering = ('id',)
