@@ -88,7 +88,7 @@ class Contract(models.Model):
     sales_contact = models.ForeignKey(User, on_delete=models.RESTRICT)
     client = models.ForeignKey(Client, on_delete=models.RESTRICT, null=True, blank=True)
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
-    date_updated = models.DateTimeField("Updated_Date", auto_now_add=True)
+    date_updated = models.DateTimeField("Updated_Date", auto_now=True)
     status = models.BooleanField(default=True)
     amount = models.FloatField()
     payement_due = models.DateTimeField("Payement_Date", auto_now=False)

@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'rest_framework',
     "rest_framework_simplejwt",
     'rest_framework_simplejwt.token_blacklist',
+    'django_extensions',
     'api',
 ]
 
@@ -122,10 +123,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
+    'formatters': {
+            'verbose': {
+                'format': '{levelname} {asctime}: {message}',
+                'style': '{',
+        },
+    },
     'handlers': {
         'file': {
             'level': 'INFO',
             'class': 'logging.FileHandler',
+            'formatter': 'verbose',
             'filename': BASE_DIR + "/api/logs/debug.log",
         },
     },
@@ -137,3 +145,4 @@ LOGGING = {
         },
     },
 }
+
