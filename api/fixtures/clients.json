@@ -1,0 +1,32 @@
+[
+  {
+    "model": "api.client",
+    "pk": 1,
+    "fields": {
+      "first_name": "Norman",
+      "last_name": "Mcgowan",
+      "is_prospect": false,
+      "tel": "08.12.49.11.72",
+      "mobile": "07.11.71.30.68",
+      "email": "client1@email.com",
+      "company_name": "One For the Code",
+      "date_created": "2023-06-11 09:10:52+02",
+      "date_updated": "2023-06-11 09:10:52+02"
+    }
+  },
+  {
+    "model": "api.client",
+    "pk": 2,
+    "fields": {
+      "first_name": "Milly",
+      "last_name": "Potts",
+      "is_prospect": true,
+      "tel": "04.09.13.24.65",
+      "mobile": "07.89.55.43.11",
+      "email": "client2@email.com",
+      "company_name": "Crystal Engineer",
+      "date_created": "2023-06-11 09:10:52+02",
+      "date_updated": "2023-06-11 09:10:52+02"
+    }
+  }
+]

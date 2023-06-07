@@ -119,6 +119,11 @@ USE_TZ = True
 STATIC_URL = "/static/"
 DEFAULT_AUTO_FIELD = "django.db.models.AutoField"
 
+FIXTURE_DIRS = (
+   os.path.join(f"{BASE_DIR + '/api/'}", 'fixtures'),
+)
+
+
 
 LOGGING = {
     'version': 1,

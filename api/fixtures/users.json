@@ -1,0 +1,92 @@
+[
+  {
+    "model": "api.user",
+    "pk": 1,
+    "fields": {
+      "first_name": "Thomas",
+      "last_name": "Barbato",
+      "email": "management1@email.com",
+      "password": "Thomas404*",
+      "role": "MANAGEMENT",
+      "tel": "07.81.82.50.80",
+      "is_active": true,
+      "is_staff": true,
+      "is_admin": true
+    }
+  },
+  {
+    "model": "api.user",
+    "pk": 2,
+    "fields": {
+      "first_name": "Herbert",
+      "last_name": "Harmon",
+      "email": "management2@email.com",
+      "password": "Thomas404*",
+      "role": "MANAGEMENT",
+      "tel": "07.81.82.32.70",
+      "is_active": true,
+      "is_staff": true,
+      "is_admin": true
+    }
+  },
+  {
+    "model": "api.user",
+    "pk": 3,
+    "fields": {
+      "first_name": "Joyce",
+      "last_name": "Kane",
+      "email": "sales1@email.com",
+      "password": "Thomas404*",
+      "role": "SALES",
+      "tel": "07.81.82.14.60",
+      "is_active": true,
+      "is_staff": false,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "api.user",
+    "pk": 4,
+    "fields": {
+      "first_name": "Ian",
+      "last_name": "Stokes",
+      "email": "sales2@email.com",
+      "password": "Thomas404*",
+      "role": "SALES",
+      "tel": "07.81.82.92.01",
+      "is_active": true,
+      "is_staff": false,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "api.user",
+    "pk": 5,
+    "fields": {
+      "first_name": "Victoria",
+      "last_name": "Deleon",
+      "email": "support1@email.com",
+      "password": "Thomas404*",
+      "role": "SUPPORT",
+      "tel": "07.81.82.89.03",
+      "is_active": true,
+      "is_staff": false,
+      "is_admin": false
+    }
+  },
+  {
+    "model": "api.user",
+    "pk": 6,
+    "fields": {
+      "first_name": "Declan",
+      "last_name": "Mathews",
+      "email": "support2@email.com",
+      "password": "Thomas404*",
+      "role": "SUPPORT",
+      "tel": "07.81.82.45.23",
+      "is_active": true,
+      "is_staff": false,
+      "is_admin": false
+    }
+  }
+]

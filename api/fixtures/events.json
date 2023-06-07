@@ -1,0 +1,30 @@
+[
+  {
+    "model": "api.event",
+    "pk": 1,
+    "fields": {
+      "attendees": 25,
+      "event_date": "2023-08-11 09:10:52+02",
+      "notes": "Nothing to add for now",
+      "client_id": 1,
+      "support_contact_id": 5,
+      "contract_id": 1,
+      "date_created": "2023-06-11 09:10:52+02",
+      "date_updated": "2023-06-11 09:10:52+02"
+    }
+  },
+  {
+    "model": "api.event",
+    "pk": 2,
+    "fields": {
+      "attendees": 10,
+      "event_date": "2023-09-15 18:00:00",
+      "notes": "Nothing to add for now",
+      "client_id": 2,
+      "support_contact_id": 6,
+      "contract_id": 2,
+      "date_created": "2023-06-11 09:10:52+02",
+      "date_updated": "2023-06-11 09:10:52+02"
+    }
+  }
+]
