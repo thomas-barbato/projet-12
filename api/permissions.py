@@ -22,9 +22,8 @@ from api.models import User, Client, Event, Contract
 
 class IsSalesmanClient(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == 'GET':
-            if view.kwargs:
-                return Contract.objects.filter(client_id=view.kwargs["pk"], sales_contact_id=request.user.id).exists()
+        if request.method == 'GET' and view.kwargs:
+            return Contract.objects.filter(client_id=view.kwargs["pk"], sales_contact_id=request.user.id).exists()
         elif request.method == 'POST' and request.user.role == 'SUPPORT':
             return False
         return True
@@ -37,9 +36,8 @@ class IsSalesmanClient(permissions.BasePermission):
 
 class IsSupportClient(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == 'GET':
-            if view.kwargs:
-                return Event.objects.filter(client_id=view.kwargs["pk"], support_contact_id=request.user.id).exists()
+        if request.method == 'GET' and view.kwargs:
+            return Event.objects.filter(client_id=view.kwargs["pk"], support_contact_id=request.user.id).exists()
         if request.method == 'POST' and request.user.role == 'SUPPORT':
             return False
         return True
@@ -67,10 +65,10 @@ class IsSalesmanOrSupportEvent(permissions.BasePermission):
             if view.kwargs:
                 return Event.objects.filter(id=view.kwargs["pk"], support_contact_id=request.user.id).exists()
             return True
-        elif request.method == 'POST' and request.user.role != 'SUPPORT':
+        elif request.method in ['POST','PUT'] and request.user.role != 'SUPPORT':
+            if view.kwargs:
+                return Event.objects.filter(id=view.kwargs["pk"], support_contact_id=request.user.id).exists()
             return True
-        elif request.method == 'PUT' and request.user.role == 'SUPPORT':
-            return Event.objects.filter(id=view.kwargs["pk"], support_contact_id=request.user.id).exists()
         return False
 
 
