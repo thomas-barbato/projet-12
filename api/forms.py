@@ -31,7 +31,7 @@ class CustomUserAdminForm(forms.ModelForm):
         )
 
     def save(self, commit=True):
-        user = super(CustomUserAdminForm, self).save(commit=False)
+        user = super().save(commit=False)
         user.set_password(self.cleaned_data["password"])
         if self.cleaned_data["role"] == "MANAGEMENT":
             user.is_admin = True
