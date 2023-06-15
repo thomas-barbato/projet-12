@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-06-15T12:57:37.869Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="OwfafHoUwNkAa7uWEloS" version="21.3.8">
+<mxfile host="app.diagrams.net" modified="2023-06-15T13:46:02.905Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/114.0" etag="EVNtiHayqtFf2tCt22ca" version="21.3.8">
   <diagram id="wEkoVnYtGdNWZhA1KiQT" name="Page-1">
     <mxGraphModel dx="1434" dy="792" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
@@ -10,7 +10,7 @@
         <mxCell id="JXJhJCuWqA1Dkq9rW7WM-5" value="Evenement&#xa;" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;verticalAlign=top;" parent="1" vertex="1">
           <mxGeometry x="100" y="450" width="140" height="300" as="geometry" />
         </mxCell>
-        <mxCell id="JXJhJCuWqA1Dkq9rW7WM-60" value="id: pk" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=4" parent="JXJhJCuWqA1Dkq9rW7WM-5" vertex="1">
+        <mxCell id="JXJhJCuWqA1Dkq9rW7WM-60" value="id: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=4" parent="JXJhJCuWqA1Dkq9rW7WM-5" vertex="1">
           <mxGeometry y="30" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="JXJhJCuWqA1Dkq9rW7WM-6" value="# contract: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="JXJhJCuWqA1Dkq9rW7WM-5" vertex="1">
@@ -75,7 +75,7 @@
         <mxCell id="JXJhJCuWqA1Dkq9rW7WM-48" value="User" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;direction=east;" parent="1" vertex="1">
           <mxGeometry x="100" y="40" width="146" height="300" as="geometry" />
         </mxCell>
-        <mxCell id="JXJhJCuWqA1Dkq9rW7WM-62" value="&#xa;id : pk&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=4" parent="JXJhJCuWqA1Dkq9rW7WM-48" vertex="1">
+        <mxCell id="JXJhJCuWqA1Dkq9rW7WM-62" value="&#xa;id : int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;fontStyle=4" parent="JXJhJCuWqA1Dkq9rW7WM-48" vertex="1">
           <mxGeometry y="30" width="146" height="30" as="geometry" />
         </mxCell>
         <mxCell id="JXJhJCuWqA1Dkq9rW7WM-50" value="email: str" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" parent="JXJhJCuWqA1Dkq9rW7WM-48" vertex="1">
