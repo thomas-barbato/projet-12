@@ -11,13 +11,14 @@ class CustomUserAdmin(ModelAdmin):
     form = CustomUserAdminForm
 
     fieldsets = (
-        ('Informations de connexion', {'fields': ('email', 'password')}),
-        ('Informations personnelles', {'fields': ('first_name', 'last_name', 'role', 'tel')}),
+        ("Informations de connexion", {"fields": ("email", "password")}),
+        ("Informations personnelles", {"fields": ("first_name", "last_name", "role", "tel")}),
     )
 
-    ordering = ('id',)
+    ordering = ("id",)
 
     filter_horizontal = ()
+
 
 admin.site.register(User, CustomUserAdmin)
 
@@ -38,7 +39,7 @@ class ClientAdmin(ModelAdmin):
         "date_created",
         "date_updated",
     )
-    readonly_fields = ('date_created', 'date_updated')
+    readonly_fields = ("date_created", "date_updated")
 
 
 @admin.register(Contract)
@@ -52,7 +53,8 @@ class ContractAdmin(ModelAdmin):
         "date_created",
         "date_updated",
     )
-    readonly_fields = ('date_created', 'date_updated')
+    readonly_fields = ("date_created", "date_updated")
+
 
 @admin.register(Event)
 class EventAdmin(ModelAdmin):
@@ -65,4 +67,4 @@ class EventAdmin(ModelAdmin):
         "date_created",
         "date_updated",
     )
-    readonly_fields = ('date_created', 'date_updated')
+    readonly_fields = ("date_created", "date_updated")

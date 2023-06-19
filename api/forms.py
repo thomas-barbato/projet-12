@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django import forms
 from django.forms import PasswordInput
 
@@ -7,7 +6,6 @@ from api.validators.check_data import CheckPasswordPolicy
 
 
 class CustomUserAdminForm(forms.ModelForm):
-
     password = forms.CharField(
         widget=PasswordInput(),
         required=True,
@@ -18,7 +16,7 @@ class CustomUserAdminForm(forms.ModelForm):
     class Meta:
         model = User
         fields = (
-            'email',
+            "email",
             "first_name",
             "last_name",
             "email",
@@ -27,7 +25,7 @@ class CustomUserAdminForm(forms.ModelForm):
             "role",
             "is_active",
             "is_staff",
-            "is_admin"
+            "is_admin",
         )
 
     def save(self, commit=True):
