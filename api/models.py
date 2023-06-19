@@ -14,13 +14,17 @@ class CustomUserManager(BaseUserManager):
         user.save()
         return user
 
-    def create_superuser(self, email, password, **extra_fields):
-        user = self.create_user(email=email, password=password, **extra_fields)
-        user.is_superuser = True
-        user.is_staff = True
-        user.is_active = True
-        user.is_admin = True
-
+    def create_superuser(self, email, password, first_name, last_name):
+        user = self.create_user(
+            email=email,
+            password=password,
+            first_name=first_name,
+            last_name=last_name,
+            role="MANAGEMENT",
+            is_staff=True,
+            is_active=True,
+            is_admin=True,
+        )
         user.save()
 
         return user
