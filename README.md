@@ -37,7 +37,7 @@ Activez l'environnement virtuel:
 Installez les dépendances:
 `pip install -r requirements.txt`
 
-## Charger les données de test (étape optionnelle):
+## Charger les données de test
 
 Pour charger les données contenues dans les fixtures, entrez la commande suivante:
 `python manage.py loaddata 1_users.json, 2_clients.json, 3_contracts.json, 4_events.json`
@@ -46,11 +46,11 @@ Le mot de passe de chaque utilisateur est : `Thomas404*`
 
 Utilisez la commande `python manage.py flush` pour effacer les données en base de données
 
-## Démarrer le projet :
+## Démarrer le projet
 
 Pour démarrer le projet, entrez la commande suivante: `python manage.py runserver`
 
-## Accéder à l'interface admin:
+## Accéder à l'interface admin
 
 Pour accéder à l'interface d'administration, rendez-vous à l'url suivante :
 
