@@ -1,8 +1,7 @@
-from django.core.exceptions import ObjectDoesNotExist
-from django.db.models import Q
+
 from rest_framework import permissions
 
-from api.models import User, Client, Event, Contract
+from api.models import Event, Contract
 
 
 # doc here :
@@ -20,11 +19,12 @@ from api.models import User, Client, Event, Contract
 # has_object_permission method will not be called on HTTP POST request, hence we need to
 # restrict it from has_permission method.
 
+
 class IsSalesmanClient(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == 'GET' and view.kwargs:
+        if request.method == "GET" and view.kwargs:
             return Contract.objects.filter(client_id=view.kwargs["pk"], sales_contact_id=request.user.id).exists()
-        elif request.method == 'POST' and request.user.role == 'SUPPORT':
+        elif request.method == "POST" and request.user.role == "SUPPORT":
             return False
         return True
 
@@ -36,9 +36,9 @@ class IsSalesmanClient(permissions.BasePermission):
 
 class IsSupportClient(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == 'GET' and view.kwargs:
+        if request.method == "GET" and view.kwargs:
             return Event.objects.filter(client_id=view.kwargs["pk"], support_contact_id=request.user.id).exists()
-        if request.method == 'POST' and request.user.role == 'SUPPORT':
+        if request.method == "POST" and request.user.role == "SUPPORT":
             return False
         return True
 
@@ -50,25 +50,23 @@ class IsSupportClient(permissions.BasePermission):
 
 class IsSalesmanContract(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == 'GET' and request.user.role != 'SUPPORT':
+        if request.method == "GET" and request.user.role != "SUPPORT":
             if view.kwargs:
                 return Contract.objects.filter(id=view.kwargs["pk"], sales_contact_id=request.user.id).exists()
             return True
-        elif request.method == 'PUT':
+        elif request.method == "PUT":
             return Contract.objects.filter(id=view.kwargs["pk"], sales_contact_id=request.user.id).exists()
         return False
 
 
 class IsSalesmanOrSupportEvent(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == 'GET':
+        if request.method == "GET":
             if view.kwargs:
                 return Event.objects.filter(id=view.kwargs["pk"], support_contact_id=request.user.id).exists()
             return True
-        elif request.method in ['POST','PUT'] and request.user.role != 'SUPPORT':
+        elif request.method in ["POST", "PUT"] and request.user.role != "SUPPORT":
             if view.kwargs:
                 return Event.objects.filter(id=view.kwargs["pk"], support_contact_id=request.user.id).exists()
             return True
         return False
-
-

@@ -3,32 +3,28 @@ from rest_framework import serializers
 from rest_framework.validators import UniqueValidator
 from rest_framework_simplejwt.serializers import TokenObtainSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
-from rest_framework_simplejwt.views import TokenObtainPairView
 
 from .models import User, Client, Event, Contract
 from .validators.check_data import CheckPasswordPolicy
 
 
 class UserSerializer(serializers.ModelSerializer):
-    ROLE = [('SALES', 'SALES'),
-            ('SUPPORT', 'SUPPORT'),
+    ROLE = [
+        ("SALES", "SALES"),
+        ("SUPPORT", "SUPPORT"),
     ]
     password = serializers.CharField(style={"input_type": "password"}, write_only=True)
     password2 = serializers.CharField(style={"input_type": "password"}, write_only=True)
-    email = serializers.EmailField(
-        required=True, validators=[UniqueValidator(queryset=User.objects.all())]
-    )
+    email = serializers.EmailField(required=True, validators=[UniqueValidator(queryset=User.objects.all())])
     role = serializers.ChoiceField(ROLE)
 
     class Meta:
         model = User
-        fields = ("id","email", "password", "password2", "first_name", "last_name", "tel", "role")
+        fields = ("id", "email", "password", "password2", "first_name", "last_name", "tel", "role")
         read_only_fields = ("id",)
 
     def validate(self, attrs):
-        CheckPasswordPolicy().validate(
-            password=attrs["password"], password2=attrs["password2"]
-        )
+        CheckPasswordPolicy().validate(password=attrs["password"], password2=attrs["password2"])
         return super().validate(attrs)
 
     def create(self, validated_data):
@@ -68,17 +64,13 @@ class MyTokenObtainSerializer(TokenObtainSerializer):
             if not self.user.check_password(attrs["password"]):
                 raise serializers.ValidationError("Incorrect credentials.")
         if self.user is None or not self.user.is_active:
-            raise serializers.ValidationError(
-                "No active account found with the given credentials"
-            )
+            raise serializers.ValidationError("No active account found with the given credentials")
 
         return {}
 
     @classmethod
     def get_token(cls, user):
-        raise NotImplementedError(
-            "Must implement `get_token` method for `MyTokenObtainSerializer` subclasses"
-        )
+        raise NotImplementedError("Must implement `get_token` method for `MyTokenObtainSerializer` subclasses")
 
 
 class MyTokenObtainPairSerializer(MyTokenObtainSerializer):
@@ -105,41 +97,41 @@ class LoginUserSerializer(serializers.ModelSerializer):
 
 
 class ContractSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Contract
-        fields = ["id",
-                  "sales_contact_id",
-                  "client_id",
-                  "date_created",
-                  "date_updated",
-                  "status",
-                  "amount",
-                  "payement_due",
-                  ]
+        fields = [
+            "id",
+            "sales_contact_id",
+            "client_id",
+            "date_created",
+            "date_updated",
+            "status",
+            "amount",
+            "payement_due",
+        ]
         read_only_fields = ("id",)
 
 
 class ClientSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Client
-        fields = ["id",
-                  "is_prospect",
-                  "first_name",
-                  "last_name",
-                  "tel",
-                  "mobile",
-                  "email",
-                  "company_name",
-                  "facebook",
-                  "twitter",
-                  "linkedin",
-                  ]
+        fields = [
+            "id",
+            "is_prospect",
+            "first_name",
+            "last_name",
+            "tel",
+            "mobile",
+            "email",
+            "company_name",
+            "facebook",
+            "twitter",
+            "linkedin",
+        ]
         read_only_fields = ("id",)
 
-class EventSerializer(serializers.ModelSerializer):
 
+class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
         fields = [
