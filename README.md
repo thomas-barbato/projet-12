@@ -50,7 +50,7 @@ Utilisez la commande `python manage.py flush` pour effacer les données en base 
 
 Pour démarrer le projet, entrez la commande suivante: `python manage.py runserver`
 
-## Accéder à l'interface admin
+## Accéder à l'interface admin 
 
 Pour accéder à l'interface d'administration, rendez-vous à l'url suivante :
 
