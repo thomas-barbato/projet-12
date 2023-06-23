@@ -13,7 +13,11 @@ class Migration(migrations.Migration):
             model_name="user",
             name="role",
             field=models.CharField(
-                choices=[("SALES", "SALES"), ("SUPPORT", "SUPPORT"), ("MANAGEMENT", "MANAGEMENT")],
+                choices=[
+                    ("SALES", "SALES"),
+                    ("SUPPORT", "SUPPORT"),
+                    ("MANAGEMENT", "MANAGEMENT"),
+                ],
                 default=("SUPPORT", "SUPPORT"),
                 max_length=10,
             ),

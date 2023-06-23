@@ -3,7 +3,12 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework_simplejwt.views import TokenObtainPairView
 
 from api.models import User, Client, Event, Contract
-from .permissions import IsSalesmanContract, IsSalesmanOrSupportEvent, IsSalesmanClient, IsSupportClient
+from .permissions import (
+    IsSalesmanContract,
+    IsSalesmanOrSupportEvent,
+    IsSalesmanClient,
+    IsSupportClient,
+)
 
 from .serializers import (
     UserSerializer,

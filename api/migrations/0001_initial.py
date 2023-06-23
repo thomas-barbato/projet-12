@@ -15,9 +15,22 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="User",
             fields=[
-                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("password", models.CharField(max_length=128, verbose_name="password")),
-                ("last_login", models.DateTimeField(blank=True, null=True, verbose_name="last login")),
+                (
+                    "last_login",
+                    models.DateTimeField(
+                        blank=True, null=True, verbose_name="last login"
+                    ),
+                ),
                 ("email", models.EmailField(max_length=254, unique=True)),
                 ("first_name", models.CharField(blank=True, max_length=50)),
                 ("last_name", models.CharField(blank=True, max_length=50)),
@@ -44,61 +57,127 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name="Client",
             fields=[
-                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
                 ("is_prospect", models.BooleanField(default=True)),
                 ("first_name", models.CharField(max_length=25)),
                 ("last_name", models.CharField(max_length=25)),
                 ("tel", models.CharField(max_length=20)),
                 ("mobile", models.CharField(max_length=20)),
                 ("email", models.CharField(max_length=100)),
-                ("company_name", models.CharField(blank=True, default="", max_length=250)),
+                (
+                    "company_name",
+                    models.CharField(blank=True, default="", max_length=250),
+                ),
                 ("facebook", models.CharField(blank=True, default="", max_length=100)),
                 ("twitter", models.CharField(blank=True, default="", max_length=100)),
                 ("linkedin", models.CharField(blank=True, default="", max_length=100)),
-                ("date_created", models.DateTimeField(auto_now_add=True, verbose_name="Created_Date")),
-                ("date_updated", models.DateTimeField(auto_now=True, verbose_name="Updated_Date")),
+                (
+                    "date_created",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Created_Date"
+                    ),
+                ),
+                (
+                    "date_updated",
+                    models.DateTimeField(auto_now=True, verbose_name="Updated_Date"),
+                ),
             ],
         ),
         migrations.CreateModel(
             name="Contract",
             fields=[
-                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
-                ("date_created", models.DateTimeField(auto_now_add=True, verbose_name="Created_Date")),
-                ("date_updated", models.DateTimeField(auto_now=True, verbose_name="Updated_Date")),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "date_created",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Created_Date"
+                    ),
+                ),
+                (
+                    "date_updated",
+                    models.DateTimeField(auto_now=True, verbose_name="Updated_Date"),
+                ),
                 ("status", models.BooleanField(default=True)),
                 ("amount", models.FloatField()),
                 ("payement_due", models.DateTimeField(verbose_name="Payement_Date")),
                 (
                     "client",
                     models.ForeignKey(
-                        blank=True, null=True, on_delete=django.db.models.deletion.RESTRICT, to="api.client"
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        to="api.client",
                     ),
                 ),
                 (
                     "sales_contact",
-                    models.ForeignKey(on_delete=django.db.models.deletion.RESTRICT, to=settings.AUTH_USER_MODEL),
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
                 ),
             ],
         ),
         migrations.CreateModel(
             name="Event",
             fields=[
-                ("id", models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name="ID")),
-                ("date_created", models.DateTimeField(auto_now_add=True, verbose_name="Created_Date")),
-                ("date_updated", models.DateTimeField(auto_now=True, verbose_name="Updated_Date")),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "date_created",
+                    models.DateTimeField(
+                        auto_now_add=True, verbose_name="Created_Date"
+                    ),
+                ),
+                (
+                    "date_updated",
+                    models.DateTimeField(auto_now=True, verbose_name="Updated_Date"),
+                ),
                 ("attendees", models.PositiveIntegerField()),
-                ("event_date", models.DateTimeField(blank=True, verbose_name="event_date")),
+                (
+                    "event_date",
+                    models.DateTimeField(blank=True, verbose_name="event_date"),
+                ),
                 ("notes", models.TextField(max_length=500)),
                 (
                     "client",
                     models.ForeignKey(
-                        blank=True, null=True, on_delete=django.db.models.deletion.RESTRICT, to="api.client"
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        to="api.client",
                     ),
                 ),
                 (
                     "contract",
                     models.ForeignKey(
-                        blank=True, null=True, on_delete=django.db.models.deletion.RESTRICT, to="api.contract"
+                        blank=True,
+                        null=True,
+                        on_delete=django.db.models.deletion.RESTRICT,
+                        to="api.contract",
                     ),
                 ),
                 (

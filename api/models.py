@@ -93,14 +93,20 @@ class Contract(models.Model):
     payement_due = models.DateTimeField("Payement_Date", auto_now=False)
 
     def __str__(self):
-        return (f"Contract { self.pk } "
-                f"- Client : {self.client.company_name} - {self.client.first_name} {self.client.last_name}")
+        return (
+            f"Contract { self.pk } "
+            f"- Client : {self.client.company_name} - {self.client.first_name} {self.client.last_name}"
+        )
 
 
 class Event(models.Model):
     client = models.ForeignKey(Client, on_delete=models.RESTRICT, null=True, blank=True)
-    contract = models.ForeignKey(Contract, on_delete=models.RESTRICT, null=True, blank=True)
-    support_contact = models.ForeignKey(User, on_delete=models.RESTRICT, null=True, blank=True)
+    contract = models.ForeignKey(
+        Contract, on_delete=models.RESTRICT, null=True, blank=True
+    )
+    support_contact = models.ForeignKey(
+        User, on_delete=models.RESTRICT, null=True, blank=True
+    )
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
     date_updated = models.DateTimeField("Updated_Date", auto_now=True)
     attendees = models.PositiveIntegerField()
@@ -108,5 +114,7 @@ class Event(models.Model):
     notes = models.TextField(max_length=500)
 
     def __str__(self):
-        return (f"Event { self.pk} "
-                f"- Client : {self.client.company_name} - {self.client.first_name} {self.client.last_name}")
+        return (
+            f"Event { self.pk} "
+            f"- Client : {self.client.company_name} - {self.client.first_name} {self.client.last_name}"
+        )

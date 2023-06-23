@@ -3,7 +3,13 @@ from django.contrib import admin
 from rest_framework.routers import SimpleRouter
 from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 
-from api.views import MyTokenObtainPairView, UserViewset, ContractViewset, ClientViewset, EventViewset
+from api.views import (
+    MyTokenObtainPairView,
+    UserViewset,
+    ContractViewset,
+    ClientViewset,
+    EventViewset,
+)
 
 base_router = SimpleRouter()
 # /contracts/
