@@ -220,6 +220,16 @@
 				{
 					"name": "token_refresh",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{project_12_jwt_token}}",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
@@ -227,16 +237,16 @@
 							"formdata": [
 								{
 									"key": "refresh",
-									"value": "{{project_12_jwt_token}}",
+									"value": "{{project_12_token_refresh}}",
 									"description": "Refresh part of a token in value, made to change expiration date\n",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{ domain }}/api/token/refresh/",
+							"raw": "{{domain}}/api/token/refresh/",
 							"host": [
-								"{{ domain }}"
+								"{{domain}}"
 							],
 							"path": [
 								"api",
@@ -610,7 +620,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{   \r\n    \"first_name\": \"test2 updated !\"\r\n}",
+							"raw": "{   \r\n    \"first_name\": \"updated_name\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -618,14 +628,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/api/clients/28/",
+							"raw": "{{domain}}/api/clients/1/",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"clients",
-								"28",
+								"1",
 								""
 							]
 						}

@@ -1,18 +1,21 @@
 from django.contrib import admin
 from django.contrib.admin import ModelAdmin
-from django.contrib.auth.admin import UserAdmin
 
 from api.forms import CustomUserAdminForm
 from api.models import User, Event, Contract, Client
 
 
 class CustomUserAdmin(ModelAdmin):
+
     model = User
     form = CustomUserAdminForm
 
     fieldsets = (
         ("Informations de connexion", {"fields": ("email", "password")}),
-        ("Informations personnelles", {"fields": ("first_name", "last_name", "role", "tel")}),
+        (
+            "Informations personnelles",
+            {"fields": ("first_name", "last_name", "role", "tel")},
+        ),
     )
 
     ordering = ("id",)
@@ -25,6 +28,7 @@ admin.site.register(User, CustomUserAdmin)
 
 @admin.register(Client)
 class ClientAdmin(ModelAdmin):
+
     fields = (
         "first_name",
         "last_name",
@@ -44,6 +48,7 @@ class ClientAdmin(ModelAdmin):
 
 @admin.register(Contract)
 class ContractAdmin(ModelAdmin):
+
     fields = (
         "client",
         "sales_contact",
@@ -58,6 +63,7 @@ class ContractAdmin(ModelAdmin):
 
 @admin.register(Event)
 class EventAdmin(ModelAdmin):
+
     fields = (
         "client",
         "support_contact",
