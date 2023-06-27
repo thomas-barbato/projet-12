@@ -5,11 +5,11 @@
     "fields": {
       "status": true,
       "amount": 1450.70,
-      "payement_due": "2023-08-11 09:10:52+02",
+      "payement_due": "2023-08-13T15:00:52.071Z",
       "client_id": 1,
       "sales_contact_id": 3,
-      "date_created": "2023-06-11 09:10:52+02",
-      "date_updated": "2023-06-11 09:10:52+02"
+      "date_created": "2023-06-11T09:10:52.071Z",
+      "date_updated": "2023-06-11T09:10:52.071Z"
     }
   },
   {
@@ -18,11 +18,37 @@
     "fields": {
       "status": true,
       "amount": 750.00,
-      "payement_due": "2023-08-11 09:10:52+02",
+      "payement_due": "2023-08-13T15:00:52.071Z",
       "client_id": 2,
       "sales_contact_id": 4,
-      "date_created": "2023-06-11 09:10:52+02",
-      "date_updated": "2023-06-11 09:10:52+02"
+      "date_created": "2023-06-11T09:10:52.071Z",
+      "date_updated": "2023-06-11T09:10:52.071Z"
+    }
+  },
+  {
+    "model": "api.contract",
+    "pk": 3,
+    "fields": {
+      "status": true,
+      "amount": 1750.00,
+      "payement_due": "2023-08-13T15:00:52.071Z",
+      "client_id": 3,
+      "sales_contact_id": 3,
+      "date_created": "2023-06-11T09:10:52.071Z",
+      "date_updated": "2023-06-11T09:10:52.071Z"
+    }
+  },
+  {
+    "model": "api.contract",
+    "pk": 4,
+    "fields": {
+      "status": true,
+      "amount": 249.50,
+      "payement_due": "2023-08-11T09:10:52.338Z",
+      "client_id": 4,
+      "sales_contact_id": 4,
+      "date_created": "2023-06-11T09:10:52.071Z",
+      "date_updated": "2023-06-11T09:10:52.071Z"
     }
   }
 ]

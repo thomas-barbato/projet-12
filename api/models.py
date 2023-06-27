@@ -85,7 +85,9 @@ class Client(models.Model):
 
 class Contract(models.Model):
     sales_contact = models.ForeignKey(User, on_delete=models.RESTRICT)
-    client = models.ForeignKey(Client, on_delete=models.RESTRICT, null=True, blank=True)
+    client = models.ForeignKey(
+        Client, on_delete=models.RESTRICT, null=True, blank=True
+    )
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
     date_updated = models.DateTimeField("Updated_Date", auto_now=True)
     status = models.BooleanField(default=True)
@@ -100,7 +102,9 @@ class Contract(models.Model):
 
 
 class Event(models.Model):
-    client = models.ForeignKey(Client, on_delete=models.RESTRICT, null=True, blank=True)
+    client = models.ForeignKey(
+        Client, on_delete=models.RESTRICT, null=True, blank=True
+    )
     contract = models.ForeignKey(
         Contract, on_delete=models.RESTRICT, null=True, blank=True
     )
@@ -110,7 +114,9 @@ class Event(models.Model):
     date_created = models.DateTimeField("Created_Date", auto_now_add=True)
     date_updated = models.DateTimeField("Updated_Date", auto_now=True)
     attendees = models.PositiveIntegerField()
-    event_date = models.DateTimeField("event_date", auto_now_add=False, blank=True)
+    event_date = models.DateTimeField(
+        "event_date", auto_now_add=False, blank=True
+    )
     notes = models.TextField(max_length=500)
 
     def __str__(self):
