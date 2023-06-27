@@ -36,7 +36,6 @@ class ContractListViewset(generics.ListCreateAPIView):
     filterset_fields = [
         "date_created",
         "payement_due",
-        "status",
         "amount",
         "client__email",
         "client__first_name",
