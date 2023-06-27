@@ -4,7 +4,7 @@ from rest_framework.validators import UniqueValidator
 from rest_framework_simplejwt.serializers import TokenObtainSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 
-from .models import User, Client, Event, Contract
+from .models import Client, Contract, Event, User
 from .validators.check_data import CheckPasswordPolicy
 
 
@@ -13,10 +13,15 @@ class UserSerializer(serializers.ModelSerializer):
         ("SALES", "SALES"),
         ("SUPPORT", "SUPPORT"),
     ]
-    password = serializers.CharField(style={"input_type": "password"}, write_only=True)
-    password2 = serializers.CharField(style={"input_type": "password"}, write_only=True)
+    password = serializers.CharField(
+        style={"input_type": "password"}, write_only=True
+    )
+    password2 = serializers.CharField(
+        style={"input_type": "password"}, write_only=True
+    )
     email = serializers.EmailField(
-        required=True, validators=[UniqueValidator(queryset=User.objects.all())]
+        required=True,
+        validators=[UniqueValidator(queryset=User.objects.all())],
     )
     role = serializers.ChoiceField(ROLE)
 
@@ -68,7 +73,9 @@ class MyTokenObtainSerializer(TokenObtainSerializer):
         self.fields["password"] = serializers.CharField()
 
     def validate(self, attrs):
-        self.user = User.objects.filter(email=attrs[self.username_field]).first()
+        self.user = User.objects.filter(
+            email=attrs[self.username_field]
+        ).first()
 
         if not self.user:
             raise serializers.ValidationError("The user is not valid.")
@@ -105,7 +112,9 @@ class MyTokenObtainPairSerializer(MyTokenObtainSerializer):
 
 
 class LoginUserSerializer(serializers.ModelSerializer):
-    password = serializers.CharField(style={"input_type": "password"}, write_only=True)
+    password = serializers.CharField(
+        style={"input_type": "password"}, write_only=True
+    )
 
     class Meta:
         model = User

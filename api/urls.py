@@ -1,30 +1,37 @@
-from django.urls import include, path
 from django.contrib import admin
-from rest_framework.routers import SimpleRouter
+from django.urls import include, path
 from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 
 from api.views import (
+    ClientDetailViewset,
+    ClientListViewset,
+    ContractDetailViewset,
+    ContractListViewset,
+    EventDetailViewset,
+    EventListViewset,
     MyTokenObtainPairView,
     UserViewset,
-    ContractViewset,
-    ClientViewset,
-    EventViewset,
 )
 
-base_router = SimpleRouter()
-# /contracts/
-# /contracts/{pk}/
-base_router.register(r"contracts", ContractViewset, basename="contract")
-# /clients/
-# /clients/{pk}/
-base_router.register(r"clients", ClientViewset, basename="client")
-# /events/
-# /events/{pk}/
-base_router.register(r"events", EventViewset, basename="event")
+client_pattern = [
+    path("", ClientListViewset.as_view(), name="list"),
+    path("<int:pk>", ClientDetailViewset.as_view(), name="details"),
+]
 
+contract_pattern = [
+    path("", ContractListViewset.as_view(), name="list"),
+    path("<int:pk>", ContractDetailViewset.as_view(), name="details"),
+]
+
+event_pattern = [
+    path("", EventListViewset.as_view(), name="list"),
+    path("<int:pk>", EventDetailViewset.as_view(), name="details"),
+]
 
 urlpatterns = [
-    path("", include(base_router.urls)),
+    path("clients/", include(client_pattern)),
+    path("contracts/", include(contract_pattern)),
+    path("events/", include(event_pattern)),
     path("admin/", admin.site.urls),
     path("signup/", UserViewset.as_view({"post": "create"}), name="signup"),
     path("login/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),

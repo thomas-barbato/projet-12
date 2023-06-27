@@ -16,7 +16,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"management8@test.com\",\r\n    \"password\": \"Thomas404*\",\r\n    \"password2\": \"Thomas404*\",\r\n    \"first_name\": \"Thomas\",\r\n    \"last_name\": \"Barbato\",\r\n    \"role\": \"MANAGEMENT\",\r\n    \"tel\": \"01.34.21.55.82\"\r\n}",
+							"raw": "{\r\n    \"email\": \"management3@email.com\",\r\n    \"password\": \"Thomas404*\",\r\n    \"password2\": \"Thomas404*\",\r\n    \"first_name\": \"Billy\",\r\n    \"last_name\": \"Bob\",\r\n    \"role\": \"MANAGEMENT\",\r\n    \"tel\": \"01.42.54.55.82\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -50,7 +50,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"support2@test.com\",\r\n    \"password\": \"Thomas404*\",\r\n    \"password2\": \"Thomas404*\",\r\n    \"first_name\": \"Roberto\",\r\n    \"last_name\": \"Billy\",\r\n    \"role\": \"SUPPORT\",\r\n    \"tel\": \"01.34.21.55.82\"\r\n}",
+									"raw": "{\r\n    \"email\": \"support3@email.com\",\r\n    \"password\": \"Thomas404*\",\r\n    \"password2\": \"Thomas404*\",\r\n    \"first_name\": \"Roberto\",\r\n    \"last_name\": \"Billy\",\r\n    \"role\": \"SUPPORT\",\r\n    \"tel\": \"01.34.21.55.82\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -279,7 +279,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/contracts/",
+							"raw": "{{domain}}/api/contracts/?client__first_name=Peter",
 							"host": [
 								"{{domain}}"
 							],
@@ -287,6 +287,12 @@
 								"api",
 								"contracts",
 								""
+							],
+							"query": [
+								{
+									"key": "client__first_name",
+									"value": "Peter"
+								}
 							]
 						}
 					},
@@ -308,15 +314,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/contracts/1/",
+							"raw": "{{domain}}/api/contracts/2",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"contracts",
-								"1",
-								""
+								"2"
 							]
 						}
 					},
@@ -339,7 +344,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"status\": true,\r\n    \"amount\": 15.22,\r\n    \"payement_due\": \"2023-05-10T07:10:52Z\"\r\n}",
+							"raw": "{\r\n    \"status\": true,\r\n    \"amount\": 850.10,\r\n    \"payement_due\": \"2023-11-15T14:10:52.071000Z\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -347,15 +352,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/api/contracts/1/",
+							"raw": "{{domain}}/api/contracts/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"contracts",
-								"1",
-								""
+								"1"
 							]
 						}
 					},
@@ -382,14 +386,19 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/events/",
+							"raw": "{{domain}}/api/events?event_date=2023-08-13T15:00:52.071000Z",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
-								"events",
-								""
+								"events"
+							],
+							"query": [
+								{
+									"key": "event_date",
+									"value": "2023-08-13T15:00:52.071000Z"
+								}
 							]
 						}
 					},
@@ -411,14 +420,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/events/1",
+							"raw": "{{domain}}/api/events/3",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"events",
-								"1"
+								"3"
 							]
 						}
 					},
@@ -441,7 +450,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"contract\": \"2\",\r\n    \"attendees\": 80,\r\n    \"event_date\": \"2023-05-10T07:10:52Z\",\r\n    \"notes\": \"une note test\",\r\n    \"client\": 1,\r\n    \"support_contact\": \"38\"\r\n}",
+							"raw": "{\r\n    \"contract\": \"4\",\r\n    \"attendees\": 80,\r\n    \"event_date\": \"2023-07-11T09:10:52.071000Z\",\r\n    \"notes\": \"une note test\",\r\n    \"client\": 5,\r\n    \"support_contact\": \"5\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -487,15 +496,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/api/events/16/",
+							"raw": "{{domain}}/api/events/3",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"events",
-								"16",
-								""
+								"3"
 							]
 						}
 					},
@@ -522,7 +530,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/clients/",
+							"raw": "{{domain}}/api/clients/?email=client1@email.com",
 							"host": [
 								"{{domain}}"
 							],
@@ -530,6 +538,12 @@
 								"api",
 								"clients",
 								""
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "client1@email.com"
+								}
 							]
 						}
 					},
@@ -551,15 +565,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/clients/1/",
+							"raw": "{{domain}}/api/clients/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"clients",
-								"1",
-								""
+								"1"
 							]
 						}
 					},
@@ -582,7 +595,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"is_prospect\": true,\r\n    \"first_name\": \"fistname_test4\",\r\n    \"last_name\": \"lastname_test4\",\r\n    \"tel\": \"04.81.22.35.82\",\r\n    \"mobile\": \"07.71.21.01.82\",\r\n    \"email\": \"client_test2@email.com\",\r\n    \"company_name\": \"mon entreprise\",\r\n    \"facebook\": \"testfb@email.com\",\r\n    \"twitter\": \"testtwitter@email.com\",\r\n    \"linedin\": \"testlinkedin@email.com\"\r\n}",
+							"raw": "{\r\n    \"is_prospect\": true,\r\n    \"first_name\": \"fistname_test4\",\r\n    \"last_name\": \"lastname_test4\",\r\n    \"tel\": \"04.81.22.35.82\",\r\n    \"mobile\": \"07.71.21.01.82\",\r\n    \"email\": \"client3@email.com\",\r\n    \"company_name\": \"mon entreprise\",\r\n    \"facebook\": \"testfb@email.com\",\r\n    \"twitter\": \"testtwitter@email.com\",\r\n    \"linedin\": \"testlinkedin@email.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -616,11 +629,11 @@
 								}
 							]
 						},
-						"method": "PATCH",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{   \r\n    \"first_name\": \"updated_name\"\r\n}",
+							"raw": "{   \r\n    \"first_name\": \"updated_name\",\r\n    \"last_name\": \"updated_last_name\",\r\n    \"mobile\": \"07.81.33.21.25\",\r\n    \"tel\": \"03.21.34.55.66\",\r\n    \"email\": \"client3@email.com\"\r\n\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -628,15 +641,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/api/clients/1/",
+							"raw": "{{domain}}/api/clients/3",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"clients",
-								"1",
-								""
+								"3"
 							]
 						}
 					},

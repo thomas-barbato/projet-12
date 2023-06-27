@@ -1,9 +1,9 @@
 """import """
 import re
 
+from django.core.exceptions import ValidationError
 from django.utils.safestring import mark_safe
 from rest_framework import serializers
-from django.core.exceptions import ValidationError
 
 from api.models import User
 
