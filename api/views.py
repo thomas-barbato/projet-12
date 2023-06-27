@@ -36,8 +36,8 @@ class ContractListViewset(generics.ListCreateAPIView):
     filterset_fields = [
         "date_created",
         "payement_due",
-        "amount",
         "status",
+        "amount",
         "client__email",
         "client__first_name",
         "client__last_name",
@@ -99,12 +99,6 @@ class ClientListViewset(generics.ListCreateAPIView):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
-class EventViewset(ModelViewSet):
-    permission_classes = (IsAuthenticated, IsSalesmanOrSupportEvent)
-    serializer_class = EventSerializer
-    queryset = Event.objects.all()
 
 
 class EventListViewset(generics.ListCreateAPIView):
