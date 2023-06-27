@@ -101,12 +101,6 @@ class ClientListViewset(generics.ListCreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-class EventViewset(ModelViewSet):
-    permission_classes = (IsAuthenticated, IsSalesmanOrSupportEvent)
-    serializer_class = EventSerializer
-    queryset = Event.objects.all()
-
-
 class EventListViewset(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, IsSalesmanOrSupportEvent)
     serializer_class = EventSerializer
