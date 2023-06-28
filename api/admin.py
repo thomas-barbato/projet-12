@@ -38,6 +38,7 @@ class ClientAdmin(ModelAdmin):
         "linkedin",
         "company_name",
         "is_prospect",
+        "sales_contact",
         "date_created",
         "date_updated",
     )

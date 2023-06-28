@@ -99,9 +99,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "date_updated",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Updated_Date"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Updated_Date"),
                 ),
             ],
         ),
@@ -125,9 +123,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "date_updated",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Updated_Date"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Updated_Date"),
                 ),
                 ("status", models.BooleanField(default=True)),
                 ("amount", models.FloatField()),
@@ -173,16 +169,12 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "date_updated",
-                    models.DateTimeField(
-                        auto_now=True, verbose_name="Updated_Date"
-                    ),
+                    models.DateTimeField(auto_now=True, verbose_name="Updated_Date"),
                 ),
                 ("attendees", models.PositiveIntegerField()),
                 (
                     "event_date",
-                    models.DateTimeField(
-                        blank=True, verbose_name="event_date"
-                    ),
+                    models.DateTimeField(blank=True, verbose_name="event_date"),
                 ),
                 ("notes", models.TextField(max_length=500)),
                 (
