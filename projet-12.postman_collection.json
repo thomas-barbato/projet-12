@@ -279,7 +279,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/contracts/?client__first_name=Peter",
+							"raw": "{{domain}}/api/contracts/",
 							"host": [
 								"{{domain}}"
 							],
@@ -287,12 +287,6 @@
 								"api",
 								"contracts",
 								""
-							],
-							"query": [
-								{
-									"key": "client__first_name",
-									"value": "Peter"
-								}
 							]
 						}
 					},
@@ -386,19 +380,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/events?event_date=2023-08-13T15:00:52.071000Z",
+							"raw": "{{domain}}/api/events/",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
-								"events"
-							],
-							"query": [
-								{
-									"key": "event_date",
-									"value": "2023-08-13T15:00:52.071000Z"
-								}
+								"events",
+								""
 							]
 						}
 					},
@@ -420,14 +409,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/events/3",
+							"raw": "{{domain}}/api/events/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"events",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -450,7 +439,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"contract\": \"4\",\r\n    \"attendees\": 80,\r\n    \"event_date\": \"2023-07-11T09:10:52.071000Z\",\r\n    \"notes\": \"une note test\",\r\n    \"client\": 5,\r\n    \"support_contact\": \"5\"\r\n}",
+							"raw": "{\r\n    \"contract\": 5,\r\n    \"attendees\": 80,\r\n    \"event_date\": \"2023-07-11T09:10:52.071000Z\",\r\n    \"notes\": \"une note test\",\r\n    \"client\": 1,\r\n    \"support_contact\": \"5\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -496,14 +485,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/api/events/3",
+							"raw": "{{domain}}/api/events/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"events",
-								"3"
+								"1"
 							]
 						}
 					},
@@ -530,14 +519,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/clients/",
+							"raw": "{{domain}}/api/clients",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
-								"clients",
-								""
+								"clients"
 							]
 						}
 					},

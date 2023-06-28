@@ -49,9 +49,6 @@ class IsSupportClient(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
-        return Event.objects.filter(
-            client_id=view.kwargs["pk"], support_contact_id=request.user.id
-        ).exists()
 
 
 class IsSalesmanContract(permissions.BasePermission):
