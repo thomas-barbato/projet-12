@@ -36,7 +36,6 @@ class ContractListViewset(generics.ListCreateAPIView):
     filter_backends = [DjangoFilterBackend, SearchFilter]
     search_fields = filterset_fields = [
         "date_created",
-        "payement_due",
         "amount",
         "client__email",
         "client__first_name",
