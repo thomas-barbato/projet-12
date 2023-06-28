@@ -20,10 +20,12 @@ from api.models import Contract, Event, Client
 
 class IsSalesmanClient(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == "GET" and view.kwargs:
-            return Client.objects.filter(
-                id=view.kwargs["pk"], sales_contact_id=request.user.id
-            ).exists()
+        if request.method == "GET":
+            if view.kwargs:
+                return Client.objects.filter(
+                    id=view.kwargs["pk"], sales_contact_id=request.user.id
+                ).exists()
+            return True
         elif request.method == "POST" and request.user.role == "SUPPORT":
             return False
         return True

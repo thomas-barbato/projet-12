@@ -75,7 +75,7 @@ class ClientListViewset(generics.ListCreateAPIView):
                 event__support_contact=self.request.user
             ).distinct()
         elif self.request.user.role == "SALES":
-            return Client.objects.filter(contract__sales_contact=self.request.user)
+            return Client.objects.filter(sales_contact=self.request.user)
         return Client.objects.all()
 
     def post(self, request, *args, **kwargs):
