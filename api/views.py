@@ -1,5 +1,6 @@
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import generics, status
+from rest_framework.filters import SearchFilter
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -32,8 +33,8 @@ class ContractListViewset(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, IsSalesmanContract)
     serializer_class = ContractSerializer
     queryset = Contract.objects.all()
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = [
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    search_fields = filterset_fields = [
         "date_created",
         "payement_due",
         "amount",
@@ -62,25 +63,16 @@ class ContractDetailViewset(generics.RetrieveUpdateDestroyAPIView):
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
 
-class ClientDetailViewset(generics.RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsAuthenticated, IsSalesmanClient | IsSupportClient]
-    serializer_class = ClientSerializer
-    queryset = Client.objects.all()
-
-    def update(self, request, *args, **kwargs):
-        client = self.get_object()
-        serializer = ClientSerializer(data=request.data, instance=client)
-        if serializer.is_valid(raise_exception=True):
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
-
-
 class ClientListViewset(generics.ListCreateAPIView):
     serializer_class = ClientSerializer
     permission_classes = [IsAuthenticated, IsSalesmanClient | IsSupportClient]
     queryset = Client.objects.all()
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = ["first_name", "last_name", "email"]
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_fields = search_fields = [
+        "first_name",
+        "last_name",
+        "email"
+    ]
 
     def get_queryset(self):
         if self.request.user.role == "SUPPORT":
@@ -100,12 +92,25 @@ class ClientListViewset(generics.ListCreateAPIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
+class ClientDetailViewset(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = [IsAuthenticated, IsSalesmanClient | IsSupportClient]
+    serializer_class = ClientSerializer
+    queryset = Client.objects.all()
+
+    def update(self, request, *args, **kwargs):
+        client = self.get_object()
+        serializer = ClientSerializer(data=request.data, instance=client)
+        if serializer.is_valid(raise_exception=True):
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
+
+
 class EventListViewset(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, IsSalesmanOrSupportEvent)
     serializer_class = EventSerializer
     queryset = Event.objects.all()
-    filter_backends = [DjangoFilterBackend]
-    filterset_fields = [
+    filter_backends = [DjangoFilterBackend, SearchFilter]
+    filterset_fields = search_fields = [
         "event_date",
         "client__email",
         "client__first_name",
