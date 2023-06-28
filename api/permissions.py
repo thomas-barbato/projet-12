@@ -42,7 +42,7 @@ class IsSupportClient(permissions.BasePermission):
             return Event.objects.filter(
                 client_id=view.kwargs["pk"], support_contact_id=request.user.id
             ).exists()
-        if request.method == "POST" and request.user.role == "SUPPORT":
+        elif request.method == "POST" and request.user.role == "SUPPORT":
             return False
         return True
 
@@ -68,7 +68,7 @@ class IsSalesmanContract(permissions.BasePermission):
 
 class IsSalesmanOrSupportEvent(permissions.BasePermission):
     def has_permission(self, request, view):
-        if request.method == "GET":
+        if request.method == "GET" and request.user.role != "SALES":
             if view.kwargs:
                 return Event.objects.filter(
                     id=view.kwargs["pk"], support_contact_id=request.user.id
