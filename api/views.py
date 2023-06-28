@@ -67,7 +67,11 @@ class ClientListViewset(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated, IsSalesmanClient | IsSupportClient]
     queryset = Client.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    filterset_fields = search_fields = ["first_name", "last_name", "email"]
+    filterset_fields = search_fields = [
+        "first_name",
+        "last_name",
+        "email"
+    ]
 
     def get_queryset(self):
         if self.request.user.role == "SUPPORT":
