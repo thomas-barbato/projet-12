@@ -6,6 +6,7 @@
       "first_name": "Norman",
       "last_name": "Mcgowan",
       "is_prospect": false,
+      "sales_contact": 3,
       "tel": "08.12.49.11.72",
       "mobile": "07.11.71.30.68",
       "email": "client1@email.com",
@@ -21,6 +22,7 @@
       "first_name": "Milly",
       "last_name": "Potts",
       "is_prospect": true,
+      "sales_contact": 4,
       "tel": "04.09.13.24.65",
       "mobile": "07.89.55.43.11",
       "email": "client2@email.com",
@@ -36,6 +38,7 @@
       "first_name": "Peter",
       "last_name": "Crow",
       "is_prospect": true,
+      "sales_contact": 3,
       "tel": "01.19.23.34.75",
       "mobile": "06.99.15.23.31",
       "email": "client3@email.com",
@@ -51,12 +54,13 @@
       "first_name": "Pauline",
       "last_name": "Lapierre",
       "is_prospect": true,
+      "sales_contact": 4,
       "tel": "02.61.32.43.57",
       "mobile": "06.12.51.32.13",
       "email": "client4@email.com",
       "company_name": "Another company name",
-      "date_created": "2023-06-11T09:10:52.071Z",
-      "date_updated": "2023-06-11T09:10:52.071Z"
+      "date_created": "2023-05-09T09:10:52.071Z",
+      "date_updated": "2023-05-09T09:10:52.071Z"
     }
   }
 ]

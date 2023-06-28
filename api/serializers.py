@@ -152,6 +152,7 @@ class ClientSerializer(serializers.ModelSerializer):
             "facebook",
             "twitter",
             "linkedin",
+            "sales_contact",
         ]
         read_only_fields = ("id",)
 

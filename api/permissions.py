@@ -1,6 +1,6 @@
 from rest_framework import permissions
 
-from api.models import Contract, Event
+from api.models import Contract, Event, Client
 
 # doc here :
 # https://stackoverflow.com/questions/43064417/whats-the-differences-between-has-object-permission-and-has-permission
@@ -21,8 +21,8 @@ from api.models import Contract, Event
 class IsSalesmanClient(permissions.BasePermission):
     def has_permission(self, request, view):
         if request.method == "GET" and view.kwargs:
-            return Contract.objects.filter(
-                client_id=view.kwargs["pk"], sales_contact_id=request.user.id
+            return Client.objects.filter(
+                id=view.kwargs["pk"], sales_contact_id=request.user.id
             ).exists()
         elif request.method == "POST" and request.user.role == "SUPPORT":
             return False
@@ -31,8 +31,8 @@ class IsSalesmanClient(permissions.BasePermission):
     def has_object_permission(self, request, view, obj):
         if request.method in permissions.SAFE_METHODS:
             return True
-        return Contract.objects.filter(
-            client_id=view.kwargs["pk"], sales_contact_id=request.user.id
+        return Client.objects.filter(
+            id=view.kwargs["pk"], sales_contact_id=request.user.id
         ).exists()
 
 

@@ -314,14 +314,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/contracts/2",
+							"raw": "{{domain}}/api/contracts/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"contracts",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -530,7 +530,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/clients/?email=client1@email.com",
+							"raw": "{{domain}}/api/clients/",
 							"host": [
 								"{{domain}}"
 							],
@@ -538,12 +538,6 @@
 								"api",
 								"clients",
 								""
-							],
-							"query": [
-								{
-									"key": "email",
-									"value": "client1@email.com"
-								}
 							]
 						}
 					},
@@ -595,7 +589,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"is_prospect\": true,\r\n    \"first_name\": \"fistname_test4\",\r\n    \"last_name\": \"lastname_test4\",\r\n    \"tel\": \"04.81.22.35.82\",\r\n    \"mobile\": \"07.71.21.01.82\",\r\n    \"email\": \"client3@email.com\",\r\n    \"company_name\": \"mon entreprise\",\r\n    \"facebook\": \"testfb@email.com\",\r\n    \"twitter\": \"testtwitter@email.com\",\r\n    \"linedin\": \"testlinkedin@email.com\"\r\n}",
+							"raw": "{\r\n    \"is_prospect\": true,\r\n    \"first_name\": \"fistname_test4\",\r\n    \"last_name\": \"lastname_test4\",\r\n    \"tel\": \"04.81.22.35.82\",\r\n    \"mobile\": \"07.71.21.01.82\",\r\n    \"email\": \"client3@email.com\",\r\n    \"company_name\": \"mon entreprise\",\r\n    \"facebook\": \"testfb@email.com\",\r\n    \"twitter\": \"testtwitter@email.com\",\r\n    \"linkedin\": \"testlinkedin@email.com\",\r\n    \"sales_contact\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -641,14 +635,14 @@
 							}
 						},
 						"url": {
-							"raw": "{{domain}}/api/clients/3",
+							"raw": "{{domain}}/api/clients/1",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
 								"clients",
-								"3"
+								"1"
 							]
 						}
 					},
