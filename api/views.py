@@ -67,7 +67,11 @@ class ClientListViewset(generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated, IsSalesmanClient | IsSupportClient]
     queryset = Client.objects.all()
     filter_backends = [DjangoFilterBackend, SearchFilter]
-    filterset_fields = search_fields = ["first_name", "last_name", "email"]
+    filterset_fields = search_fields = [
+        "first_name",
+        "last_name",
+        "email"
+    ]
 
     def get_queryset(self):
         if self.request.user.role == "SUPPORT":
@@ -75,7 +79,7 @@ class ClientListViewset(generics.ListCreateAPIView):
                 event__support_contact=self.request.user
             ).distinct()
         elif self.request.user.role == "SALES":
-            return Client.objects.filter(contract__sales_contact=self.request.user)
+            return Client.objects.filter(sales_contact=self.request.user)
         return Client.objects.all()
 
     def post(self, request, *args, **kwargs):
