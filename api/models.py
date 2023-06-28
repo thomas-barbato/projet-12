@@ -67,6 +67,7 @@ class User(AbstractBaseUser):
 
 class Client(models.Model):
     is_prospect = models.BooleanField(default=True)
+    sales_contact = models.ForeignKey(User, on_delete=models.RESTRICT, null=True, blank=True)
     first_name = models.CharField(max_length=25)
     last_name = models.CharField(max_length=25)
     tel = models.CharField(max_length=20)
