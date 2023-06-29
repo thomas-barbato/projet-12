@@ -88,7 +88,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"sales2@test.com\",\r\n    \"password\": \"Thomas404*\",\r\n    \"password2\": \"Thomas404*\",\r\n    \"first_name\": \"Jacky\",\r\n    \"last_name\": \"Paul\",\r\n    \"role\": \"SALES\",\r\n    \"tel\": \"01.34.21.55.82\"\r\n}",
+									"raw": "{\r\n    \"email\": \"sales3@email.com\",\r\n    \"password\": \"Thomas404*\",\r\n    \"password2\": \"Thomas404*\",\r\n    \"first_name\": \"Jacky\",\r\n    \"last_name\": \"Paul\",\r\n    \"role\": \"SALES\",\r\n    \"tel\": \"01.34.21.55.82\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -183,37 +183,6 @@
 							"header": null,
 							"cookie": [],
 							"body": null
-						},
-						{
-							"name": "login_management",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"email\": \"management1@email.com\",\r\n    \"password\": \"Thomas404*\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{domain}}/api/login/",
-									"host": [
-										"{{domain}}"
-									],
-									"path": [
-										"api",
-										"login",
-										""
-									]
-								}
-							},
-							"_postman_previewlanguage": null,
-							"header": null,
-							"cookie": [],
-							"body": null
 						}
 					]
 				},
@@ -279,14 +248,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/contracts/",
+							"raw": "{{domain}}/api/contracts",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
-								"contracts",
-								""
+								"contracts"
 							]
 						}
 					},
@@ -380,14 +348,13 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{domain}}/api/events/",
+							"raw": "{{domain}}/api/events",
 							"host": [
 								"{{domain}}"
 							],
 							"path": [
 								"api",
-								"events",
-								""
+								"events"
 							]
 						}
 					},
@@ -439,7 +406,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"contract\": 5,\r\n    \"attendees\": 80,\r\n    \"event_date\": \"2023-07-11T09:10:52.071000Z\",\r\n    \"notes\": \"une note test\",\r\n    \"client\": 1,\r\n    \"support_contact\": \"5\"\r\n}",
+							"raw": "{\r\n    \"contract\": 4,\r\n    \"attendees\": 80,\r\n    \"event_date\": \"2023-07-11T09:10:52.071000Z\",\r\n    \"notes\": \"une note test\",\r\n    \"client\": 1,\r\n    \"support_contact\": 5\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -577,7 +544,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"is_prospect\": true,\r\n    \"first_name\": \"fistname_test4\",\r\n    \"last_name\": \"lastname_test4\",\r\n    \"tel\": \"04.81.22.35.82\",\r\n    \"mobile\": \"07.71.21.01.82\",\r\n    \"email\": \"client3@email.com\",\r\n    \"company_name\": \"mon entreprise\",\r\n    \"facebook\": \"testfb@email.com\",\r\n    \"twitter\": \"testtwitter@email.com\",\r\n    \"linkedin\": \"testlinkedin@email.com\",\r\n    \"sales_contact\": 3\r\n}",
+							"raw": "{\r\n    \"is_prospect\": true,\r\n    \"first_name\": \"fistname_test5\",\r\n    \"last_name\": \"lastname_test5\",\r\n    \"tel\": \"04.81.22.35.82\",\r\n    \"mobile\": \"07.71.21.01.82\",\r\n    \"email\": \"clienttest2@email.com\",\r\n    \"company_name\": \"mon entreprise\",\r\n    \"facebook\": \"testfb@email.com\",\r\n    \"twitter\": \"testtwitter@email.com\",\r\n    \"linkedin\": \"testlinkedin@email.com\",\r\n    \"sales_contact\": 3\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
