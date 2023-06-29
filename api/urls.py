@@ -32,7 +32,6 @@ urlpatterns = [
     path("clients/", include(client_pattern)),
     path("contracts/", include(contract_pattern)),
     path("events/", include(event_pattern)),
-    path("admin/", admin.site.urls),
     path("signup/", UserViewset.as_view({"post": "create"}), name="signup"),
     path("login/", MyTokenObtainPairView.as_view(), name="token_obtain_pair"),
     path("token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
